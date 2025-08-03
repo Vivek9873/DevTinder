@@ -15,7 +15,7 @@ const app = express(); // This is the instance of the express js application
 
 
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "https://devtinder-7m4m.onrender.com",
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
