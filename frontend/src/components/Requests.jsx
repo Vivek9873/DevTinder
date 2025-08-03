@@ -18,7 +18,7 @@ const Requests = () => {
       );
       dispatch(removeRequest(_id));
     } catch (err){
-        console.log(err);
+        // console.log(err);
         <Error/>
     }
   };
@@ -31,7 +31,7 @@ const Requests = () => {
 
       dispatch(addRequests(res.data.data));
     } catch (err){
-        console.log(err);
+        // console.log(err);
         <Error/>
     }
   };

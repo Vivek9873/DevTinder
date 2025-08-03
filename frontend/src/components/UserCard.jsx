@@ -15,7 +15,7 @@ const UserCard = ({user}) => {
             dispatch(removeUserFromFeed(id))
         }
         catch (err){
-            console.log(err);
+            // console.log(err);
             <Error/>
         }
     }

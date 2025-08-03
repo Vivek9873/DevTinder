@@ -10,7 +10,7 @@ const Chat = () => {
     
 
     const selectedUser = useSelector(store=>store.chat);
-    console.log("id hai ye h",selectedUser._id)
+    // console.log("id hai ye h",selectedUser._id)
     const targetUserId = selectedUser._id;
     const [messages,setMessages] = useState([]);
     const [newMessage,setNewMessage] = useState("");
@@ -25,7 +25,7 @@ const Chat = () => {
 
     const fetchChatMessages = async()=>{
         const chat = await axios.post(BASE_URL+"/chat/connections",{targetUserId},{withCredentials:true});
-        console.log("Message hoon mein ",chat.data.messages);
+        // console.log("Message hoon mein ",chat.data.messages);
         const chatMessages = chat?.data?.messages.map(msg=>{
             const time = new Date(msg?.createdAt).toLocaleTimeString('en-US',{
                 hour: 'numeric',
@@ -42,14 +42,14 @@ const Chat = () => {
         fetchChatMessages();
     },[targetUserId])
     useEffect(()=>{
-        console.log(userId)
-        console.log("useEffect se hoon ",targetUserId)
+        // console.log(userId)
+        // console.log("useEffect se hoon ",targetUserId)
         if(!userId) return;
         const socket = createServerConnection();
 
         socket.emit("joinChat",{firstName:user.firstName,lastName:user.lastName,userId,targetUserId})
         socket.on("messageReceived",({firstName,lastName,text})=>{
-            console.log(firstName + " " + text)
+            // console.log(firstName + " " + text)
             setMessages(message=>[...message,{firstName,lastName,text}]);
         })
         return ()=>{

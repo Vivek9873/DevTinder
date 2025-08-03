@@ -23,7 +23,7 @@ const Connections = () => {
 
         }
         catch (err){
-        console.log(err);
+        // console.log(err);
         <Error/>
     }
     }

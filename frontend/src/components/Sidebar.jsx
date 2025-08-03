@@ -33,9 +33,10 @@ const Sidebar = ({connections}) => {
         {connections.map((user) => (
           <button
             key={user._id}
-            onClick={() => { console.log(user) 
+            onClick={() => { 
+              // console.log(user) 
                 dispatch(setSelectedUser(user))
-                console.log(selectedUser)
+                // console.log(selectedUser)
             }}
             className={`
               w-full p-3 flex items-center gap-3

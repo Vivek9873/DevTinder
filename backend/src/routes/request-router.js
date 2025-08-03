@@ -75,7 +75,7 @@ requestRouter.post("/request/review/:status/:id",userAuth,async(req,res)=>{
             toUserId:loggedInUser,
             status:"interested"
         });
-        console.log(checkRequest)
+        // console.log(checkRequest)
         if(!checkRequest){
             throw new Error("Request doesn't exists!");
         }

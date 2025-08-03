@@ -26,7 +26,7 @@ const initializeSocket = (server)=>{
         socket.on("sendMessage",async({firstName,lastName,userId,targetUserId,text})=>{
             try{
                 const roomId = getSecretRoomId(userId,targetUserId);
-                console.log(firstName+" "+text)
+                // console.log(firstName+" "+text)
                 // save mesagge to the databse
 
                 // checking whether sender and reciever are friends or not

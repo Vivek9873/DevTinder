@@ -15,7 +15,7 @@ const Feed = () => {
             dispatch(addFeed(result?.data?.data));
         }
         catch (err){
-        console.log(err);
+        // console.log(err);
         <Error/>
     }
         
