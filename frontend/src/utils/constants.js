@@ -1,5 +1,5 @@
 
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://devtinder-backend-pgzf.onrender.com";
 
 export const THEME = [
   "light", "dark", "cupcake", "bumblebee", "emerald",
