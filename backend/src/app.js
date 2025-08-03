@@ -12,14 +12,16 @@ const socket = require("socket.io");
 const initializeSocket = require("./utils/socket");
 const chatRouter = require("./routes/chat-routes");
 const app = express(); // This is the instance of the express js application
-
+const path = require("path");
 
 const corsOptions = {
-    origin: "https://devtinder-7m4m.onrender.com",
+    origin: "http://localhost:5173",
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
 };
+
+const __dirname = path.resolve();
 
 app.use(cors(corsOptions));
 
@@ -31,6 +33,14 @@ app.use("/",profileRouter)
 app.use("/",requestRouter)
 app.use("/",userRouter)
 app.use("/",chatRouter)
+
+if(process.env.NODE_ENV==="production"){
+    app.use(express.static(path.join(__dirname,"../frontend/dist")));
+
+    app.get("*",(req,res)=>{
+        res.sendFile(path.join(__dirname,"../frontend","dist","index.html"));
+    })
+}
 
 const server = http.createServer(app);
 initializeSocket(server);

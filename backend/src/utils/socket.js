@@ -13,7 +13,7 @@ const getSecretRoomId = (userId,targetUserId)=>{
 const initializeSocket = (server)=>{
     const io = socket(server,{
         cors:{
-            origin: "https://devtinder-7m4m.onrender.com",
+            origin: "http://localhost:5173",
         }
     });
     io.on("connection",(socket)=>{
