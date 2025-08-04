@@ -50,7 +50,13 @@ authRouter.post("/login",async(req,res)=>{
         }
         
         const token = jwt.sign({_id:user._id},JWT_SECRET_KEY,{expiresIn:"8h"});
-        res.cookie("token",token);
+        const isProduction = process.env.NODE_ENV === "production";
+
+        res.cookie("token", token, {
+        httpOnly: true,
+        secure: isProduction,
+        sameSite: isProduction ? "none" : "lax",
+        });
         res.status(200).json({
             message:"Login Successful!",
             data:user
@@ -68,7 +74,14 @@ authRouter.post("/login",async(req,res)=>{
 // Logout 
 
 authRouter.post("/logout",(req,res)=>{
-    res.cookie("token",null,{expires:new Date(Date.now())});
+    const isProduction = process.env.NODE_ENV === "production";
+
+    res.cookie("token", null, {
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
+    expires: new Date(Date.now()),
+    });
     res.status(200).json({
         message:"Logout Successful!",
     })
