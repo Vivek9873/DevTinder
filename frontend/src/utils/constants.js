@@ -1,5 +1,5 @@
 
-export const BASE_URL = import.meta.env.MODE==="development"?"http://localhost:3000":"/";
+export const BASE_URL = "https://devtinder-backend-pab0.onrender.com";
 
 export const THEME = [
   "light", "dark", "cupcake", "bumblebee", "emerald",
