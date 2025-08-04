@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "tinder for devs",
   "main": "index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": "20.18.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js",
@@ -19,6 +23,7 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
+    "devtinder": "file:..",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
