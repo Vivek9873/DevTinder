@@ -21,7 +21,7 @@ const corsOptions = {
     allowedHeaders: ["Content-Type", "Authorization"],
 };
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 app.use(cors(corsOptions));
 
